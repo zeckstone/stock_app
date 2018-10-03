@@ -7,37 +7,41 @@ const displayStockInfo = function () {
   const stock = $(this).attr('data-name');
   const queryURLname = `https://api.iextrading.com/1.0/stock/${stock}/quote`;
   const queryURLprice = `https://api.iextrading.com/1.0/stock/${stock}/quote`;
-  const queryURLlogo = `https://api.iextrading.com/1.0/stock/${stock}/logo`;
-  const queryURLarticles = `https://api.iextrading.com/1.0/stock/${stock}/news/last/10`;
+  const queryURLogo = `https://api.iextrading.com/1.0/stock/${stock}/logo.png`;
+  const queryURLarticles = `https://api.iextrading.com/1.0/stock/${stock}/news/last`;
 
   $.ajax({
     url: queryURLname,
     method: 'GET'
   }).then(function(response) {
-    $('#stocks-view').append(`Company Name: ${response.companyName}</br>`);
+    $('#stocks-view').append(`<h5>Company Name:</h5>  ${response.companyName}<br/><br/>`);
   });
 
   $.ajax({
     url: queryURLprice,
     method: 'GET'
   }).then(function(response) {
-    $('#stocks-view').append(`Latest Price: ${response.latestPrice}</br>`);
+    $('#stocks-view').append(`<h6>Latest Price:</h6> ${response.latestPrice}</br><br/>`);
   });
 
   $.ajax({
-    url: queryURLlogo,
+    url: queryURLogo,
     method: 'GET'
   }).then(function(response) {
-    $('#stocks-view').append(`Logo: ${response}</br>`);
+    $('#stocks-view').append(`<h6>Logo:</h6> ${response}<br/><br/>`);
   });
 
   $.ajax({
     url: queryURLarticles,
     method: 'GET'
   }).then(function(response) {
-    $('#stocks-view').append(`Articles: ${response[0].headline}</br>`);
+    for (i = 0; i < 10; i++)
+    {
+    $('#stocks-view').append(`<h6>Article:</h6> ${response[i].headline}<br/><br/>`);
+    }
   });
 
+    $('#stocks-view').append('<hr/><hr/>')
 
 }
 
