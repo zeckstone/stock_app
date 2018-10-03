@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stock Prices</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    
+    <div class="container">
+
+         <br><br>   
+                <h2>Stock Search</h2>
+            
+                <!-- stocks will Get Dumped Here -->
+                <div id="stocks-view"></div>
+            
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view"></div>
+            
+                <form id="stock-form">
+                  <label for="stock-input">Add a Stock Symbol</label>
+                  <input type="text" id="stock-input"><br>
+            
+                  <!-- Button triggers new stock to be added -->
+                  <input id="add-stock" type="submit" value="Add a Stock Symbol">
+                </form>
+
+                <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                <script src="./assets/js/bootstrap.min.js"></script>
+                <script src="./app.js"></script>
+                
+    </div>
+</body>
+</html>
